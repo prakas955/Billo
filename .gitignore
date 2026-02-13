@@ -1,0 +1,27 @@
+# Vercel
+.vercel
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Original photos (keep only the ones in images folder)
+1626059393443-01.jpg
+IMG-20201111-WA0024.jpg
+IMG-20201231-WA0028.jpg
+IMG-20201231-WA0113.jpg
+IMG_20201117_133955.jpg
+
+# Temporary files
+*.tmp
+*.temp

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Billo 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-background">
+        <div class="heart heart-1">❤️</div>
+        <div class="heart heart-2">💕</div>
+        <div class="heart heart-3">💖</div>
+        <div class="heart heart-4">💗</div>
+        <div class="heart heart-5">❤️</div>
+        <div class="heart heart-6">💕</div>
+        <div class="heart heart-7">💖</div>
+        <div class="heart heart-8">💗</div>
+    </div>
+
+    <!-- Welcome Page -->
+    <div id="welcome-page" class="page active">
+        <div class="content-container">
+            <h1 class="name-heading">Billo</h1>
+            
+            <div class="teddy-container">
+                <div class="teddy">🧸</div>
+                <div class="rose-decoration">🌹</div>
+                <div class="heart-decoration">❤️</div>
+                <div class="love-box">💝</div>
+                <div class="chocolate-decoration">🍫</div>
+            </div>
+            
+            <p class="question-text">ready for a sweet Valentine's challenge?</p>
+            
+            <div class="buttons-container">
+                <button id="start-yes-btn" class="btn yes-btn">Yes!</button>
+                <button id="start-no-btn" class="btn no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 1 - Teddy -->
+    <div id="question-1" class="page question-page">
+        <div class="content-container">
+            <h2 class="page-title">Love Question</h2>
+            
+            <div class="emoji-display">🧸</div>
+            
+            <p class="question-text">Will you be my Valentine forever?</p>
+            
+            <div class="buttons-container">
+                <button class="btn yes-btn" onclick="nextQuestion(2)">Yes!</button>
+                <button class="btn no-btn no-escape">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 2 - Chocolate -->
+    <div id="question-2" class="page question-page">
+        <div class="content-container">
+            <h2 class="page-title">Love Question</h2>
+            
+            <div class="emoji-display">🍫</div>
+            
+            <p class="question-text">Will you share sweet moments with me forever?</p>
+            
+            <div class="buttons-container">
+                <button class="btn yes-btn" onclick="nextQuestion(3)">Yes!</button>
+                <button class="btn no-btn no-escape">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 3 - Rose -->
+    <div id="question-3" class="page question-page">
+        <div class="content-container">
+            <h2 class="page-title">Love Question</h2>
+            
+            <div class="emoji-display">🌹</div>
+            
+            <p class="question-text">Will you bloom with me through all seasons?</p>
+            
+            <div class="buttons-container">
+                <button class="btn yes-btn" onclick="nextQuestion(4)">Yes!</button>
+                <button class="btn no-btn no-escape">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 4 - Hearts -->
+    <div id="question-4" class="page question-page">
+        <div class="content-container">
+            <h2 class="page-title">Love Question</h2>
+            
+            <div class="emoji-display">💕</div>
+            
+            <p class="question-text">Will you let me love you every single day?</p>
+            
+            <div class="buttons-container">
+                <button class="btn yes-btn" onclick="nextQuestion(5)">Yes!</button>
+                <button class="btn no-btn no-escape">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question 5 - Gift -->
+    <div id="question-5" class="page question-page">
+        <div class="content-container">
+            <h2 class="page-title">Love Question</h2>
+            
+            <div class="emoji-display">🎁</div>
+            
+            <p class="question-text">Will you accept all my love and care?</p>
+            
+            <div class="buttons-container">
+                <button class="btn yes-btn" onclick="showSuccess()">Yes!</button>
+                <button class="btn no-btn no-escape">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Page -->
+    <div id="success-page" class="page">
+        <div class="confetti-container" id="confetti"></div>
+        
+        <div class="content-container success-container">
+            <h2 class="page-title">Love Question</h2>
+            
+            <div class="emoji-display">🧸</div>
+            
+            <p class="success-message">access denied, you are stuck with me haii! 😂😤</p>
+            
+            <div class="falling-hearts-container">
+                <div class="falling-heart">💕</div>
+                <div class="falling-heart">💕</div>
+                <div class="falling-heart">💕</div>
+            </div>
+            
+            <button class="btn continue-btn" onclick="showGifts()">Continue 💝</button>
+        </div>
+    </div>
+
+    <!-- Gifts Menu Page -->
+    <div id="gifts-page" class="page">
+        <div class="content-container gifts-container">
+            <h2 class="page-title">Special Gifts for You! 🎁</h2>
+            <p class="gifts-subtitle">Choose a gift to open...</p>
+            
+            <div class="gifts-grid">
+                <div class="gift-box" onclick="openGiftPage(1)">
+                    <div class="gift-icon">📸</div>
+                    <p class="gift-label">Our Memory</p>
+                    <button class="btn gift-btn">Open</button>
+                </div>
+                
+                <div class="gift-box" onclick="openGiftPage(2)">
+                    <div class="gift-icon">💍</div>
+                    <p class="gift-label">My Promise</p>
+                    <button class="btn gift-btn">Open</button>
+                </div>
+                
+                <div class="gift-box" onclick="openGiftPage(3)">
+                    <div class="gift-icon">💌</div>
+                    <p class="gift-label">My Letter</p>
+                    <button class="btn gift-btn">Open</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gift 1: Our Memory (Full Page) -->
+    <div id="gift-1-page" class="page gift-page">
+        <div class="gift-full-container">
+            <button class="back-btn" onclick="backToGifts()">← Back to Gifts</button>
+            
+            <h2 class="gift-page-title">Our Beautiful Memories 💕</h2>
+            
+            <div class="memory-gallery-full">
+                <div class="memory-item-full">
+                    <img src="images/1.jpg" alt="Memory 1" class="memory-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="memory-placeholder" style="display: none;">
+                        <span class="placeholder-icon">📷</span>
+                        <p class="placeholder-text">Add images/1.jpg here</p>
+                    </div>
+                    <p class="memory-caption">Our first moments together...</p>
+                </div>
+                
+                <div class="memory-item-full">
+                    <img src="images/2.jpg" alt="Memory 2" class="memory-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="memory-placeholder" style="display: none;">
+                        <span class="placeholder-icon">📷</span>
+                        <p class="placeholder-text">Add images/2.jpg here</p>
+                    </div>
+                    <p class="memory-caption">The day we laughed until we cried...</p>
+                </div>
+                
+                <div class="memory-item-full">
+                    <img src="images/3.jpg" alt="Memory 3" class="memory-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="memory-placeholder" style="display: none;">
+                        <span class="placeholder-icon">📷</span>
+                        <p class="placeholder-text">Add images/3.jpg here</p>
+                    </div>
+                    <p class="memory-caption">Every moment with you is precious...</p>
+                </div>
+            </div>
+            
+            <div class="memory-note-full">
+                <p>💝 Every moment with you becomes a treasured memory that I hold close to my heart.</p>
+                <p>These memories are the chapters of our love story, each one more beautiful than the last.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gift 2: My Promise (Full Page) -->
+    <div id="gift-2-page" class="page gift-page">
+        <div class="gift-full-container">
+            <button class="back-btn" onclick="backToGifts()">← Back to Gifts</button>
+            
+            <h2 class="gift-page-title">My Promise 💍</h2>
+            
+            <div class="promise-card">
+                <div class="promise-text">
+                    <p class="promise-line">H Promise that</p>
+                    <p class="promise-line">I will always Lucky you.</p>
+                    <p class="promise-line">Just hold my hand, Ring in this</p>
+                    <p class="promise-line">world so all maybe.</p>
+                    <p class="promise-line">Stuchion. Life will also be like</p>
+                    <p class="promise-line">Sharing and love. Rise 😊</p>
+                </div>
+                
+                <div class="promise-divider">💕</div>
+                
+                <div class="promise-footer">
+                    <p>I promise to always be by your side,</p>
+                    <p>through every joy and every challenge.</p>
+                    <p>In laughter and in tears,</p>
+                    <p>in sunshine and in storms.</p>
+                    <p class="promise-signature">Together, forever. 💕</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gift 3: My Letter (Full Page) -->
+    <div id="gift-3-page" class="page gift-page">
+        <div class="gift-full-container">
+            <button class="back-btn" onclick="backToGifts()">← Back to Gifts</button>
+            
+            <h2 class="gift-page-title">My Letter for You 💌</h2>
+            
+            <div class="letter-card">
+                <div class="letter-text">
+                    <p class="letter-line">I wish Ru</p>
+                    <p class="letter-line">Promise that and</p>
+                    <p class="letter-line">You are the only person, I pres,</p>
+                    <p class="letter-line">We I can complete</p>
+                    <p class="letter-line">God has chosen, That you I here</p>
+                    <p class="letter-line">Sat this yet and, I have always/never</p>
+                    <p class="letter-line">Thank you for, Being with me</p>
+                </div>
+                
+                <div class="letter-hearts">
+                    <span class="letter-heart">❤️</span>
+                    <span class="letter-heart">❤️</span>
+                    <span class="letter-heart">❤️</span>
+                </div>
+                
+                <div class="letter-footer">
+                    <p>Thank you for being you, for being mine.</p>
+                    <p>Forever grateful for every moment with you.</p>
+                    <p>You make my world complete.</p>
+                    <p>Every day with you is a blessing.</p>
+                    <p class="letter-signature">With all my love 💕</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
