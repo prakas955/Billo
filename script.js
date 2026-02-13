@@ -136,10 +136,19 @@ function backToGifts() {
 
 // Initialize welcome page
 window.addEventListener('load', () => {
+    // Hide all pages first
+    const allPages = document.querySelectorAll('.page');
+    allPages.forEach(page => {
+        page.style.display = 'none';
+        page.style.opacity = '0';
+        page.classList.remove('active');
+    });
+    
     // Ensure welcome page is visible
     const welcomePage = document.getElementById('welcome-page');
     welcomePage.style.display = 'flex';
     welcomePage.style.opacity = '1';
+    welcomePage.classList.add('active');
     
     // Setup start page "No" button
     const startNoBtn = document.getElementById('start-no-btn');
