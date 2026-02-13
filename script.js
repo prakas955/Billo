@@ -136,68 +136,60 @@ function backToGifts() {
 
 // Initialize welcome page
 window.addEventListener('load', () => {
-    // Hide all pages first
-    const allPages = document.querySelectorAll('.page');
-    allPages.forEach(page => {
-        page.style.display = 'none';
-        page.style.opacity = '0';
-        page.classList.remove('active');
-    });
-    
-    // Ensure welcome page is visible
-    const welcomePage = document.getElementById('welcome-page');
-    welcomePage.style.display = 'flex';
-    welcomePage.style.opacity = '1';
-    welcomePage.classList.add('active');
-    
-    // Setup start page "No" button
-    const startNoBtn = document.getElementById('start-no-btn');
-    const startYesBtn = document.getElementById('start-yes-btn');
-    
-    // Set initial position for start no button
-    const initialPosition = getRandomPosition(startNoBtn);
-    startNoBtn.style.left = initialPosition.x + 'px';
-    startNoBtn.style.top = initialPosition.y + 'px';
-    
-    // Event listeners for start page
-    startNoBtn.addEventListener('mouseenter', () => moveNoButton(startNoBtn));
-    startNoBtn.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        moveNoButton(startNoBtn);
-    });
-    startNoBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        moveNoButton(startNoBtn);
-    });
-    
-    startYesBtn.addEventListener('click', () => {
-        changePage('welcome-page', 'question-1');
-    });
-    
-    // Setup all question pages "No" buttons
-    const allNoButtons = document.querySelectorAll('.no-escape');
-    
-    allNoButtons.forEach(noBtn => {
-        // Set initial random position
-        const pos = getRandomPosition(noBtn);
-        noBtn.style.left = pos.x + 'px';
-        noBtn.style.top = pos.y + 'px';
+    try {
+        // Ensure welcome page is visible (HTML already has class="active")
+        const welcomePage = document.getElementById('welcome-page');
+        if (welcomePage) {
+            welcomePage.style.display = 'flex';
+            welcomePage.style.opacity = '1';
+            welcomePage.classList.add('active');
+        }
         
-        // Mouse events for desktop
-        noBtn.addEventListener('mouseenter', () => moveNoButton(noBtn));
+        // Setup start page "No" button
+        const startNoBtn = document.getElementById('start-no-btn');
+        const startYesBtn = document.getElementById('start-yes-btn');
         
-        // Touch events for mobile
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            moveNoButton(noBtn);
+        if (startNoBtn) {
+            const initialPosition = getRandomPosition(startNoBtn);
+            startNoBtn.style.left = initialPosition.x + 'px';
+            startNoBtn.style.top = initialPosition.y + 'px';
+    
+            startNoBtn.addEventListener('mouseenter', () => moveNoButton(startNoBtn));
+            startNoBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                moveNoButton(startNoBtn);
+            });
+            startNoBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                moveNoButton(startNoBtn);
+            });
+        }
+        
+        if (startYesBtn) {
+            startYesBtn.addEventListener('click', () => {
+                changePage('welcome-page', 'question-1');
+            });
+        }
+    
+        // Setup all question pages "No" buttons
+        const allNoButtons = document.querySelectorAll('.no-escape');
+        allNoButtons.forEach(noBtn => {
+            const pos = getRandomPosition(noBtn);
+            noBtn.style.left = pos.x + 'px';
+            noBtn.style.top = pos.y + 'px';
+            noBtn.addEventListener('mouseenter', () => moveNoButton(noBtn));
+            noBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                moveNoButton(noBtn);
+            });
+            noBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                moveNoButton(noBtn);
+            });
         });
-        
-        // Click event
-        noBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            moveNoButton(noBtn);
-        });
-    });
+    } catch (e) {
+        console.error('Init error:', e);
+    }
 });
 
 // Reposition "No" buttons on window resize
